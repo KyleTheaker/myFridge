@@ -1,0 +1,12 @@
+{
+
+    "items": [
+        {
+            "id": 1,
+            "itemName":"chikin toes",
+            "expirationDate":"11/11/1111",
+            "meal": "breakfast"
+        }
+
+    ]
+}
