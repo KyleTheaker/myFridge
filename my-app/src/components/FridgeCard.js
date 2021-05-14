@@ -12,7 +12,7 @@ class FridgeCard extends React.Component {
             <button>Remove Item</button>
         </div>
             )
-        
+        'merp'
     }
 }
 
