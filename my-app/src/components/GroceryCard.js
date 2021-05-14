@@ -9,10 +9,8 @@ class GroceryCard extends React.Component {
             <p>{expirationDate}</p>  
             <p>{meal}</p>
             <button>Remove Item</button>
-            </div>
-            )
-        
-    }
+        </div>
+    )}
 }
 
 export default GroceryCard

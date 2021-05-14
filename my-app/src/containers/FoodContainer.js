@@ -6,59 +6,69 @@ import GroceryContainer from './GroceryContainer';
 const URL = 'http://localhost:3000/items'
 
 class FoodContainer extends React.Component {
+
     state ={
         items:[],
         filteredItems:[]
     }
-    componentDidMount(){
+
+    componentDidMount() {
         fetch(URL)
             .then(res => res.json())
             .then(foodArr => this.setState({
                 items: foodArr, 
-                filteredItems: foodArr
-            }))
+                filteredItems: foodArr}))
     }
-    addGroceryItem(groceryitem){
+    addGroceryItem = (groceryitem) => {
         console.log(groceryitem)
-        // let now = new Date();
-        // let exp = now.setDate(now.getDate()+14)
-        // // console.log(groceryitem)
-        // const newItem ={...groceryitem, expirationDate : exp, purchased: false}
-        const { itemName, mealType } = groceryitem
-        const newItem = {
-            itemName, 
-            mealType
-        }
+        let now = new Date();
+        let exp = now.setDate(now.getDate()+14)
+        // console.log(groceryitem)
+        // const { itemName, expirationDate, meal } = groceryitem
+        const newItem = {...groceryitem, expirationDate:exp, purchased:false}
+
+    //   "id": 1,
+    //   "itemName": "chikin toes",
+    //   "expirationDate": "11/11/1111",
+    //   "meal": "breakfast"
+        // const newItem = {
+        //     this.state.item.id,
+        //     itemName,
+        //     expirationDate,
+        //     meal,
         // }
         const config = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application-json',
-                'Accept' : 'application-json'
-            },
-            body: JSON.stringify(newItem)
-        }
-        fetch(URL,config)
-            .then(res => res.json())
-            .then(newItem => {
-                this.setState({
-                    items: [newItem ,...this.state.items],
-                    filteredItems: [newItem, ...this.state.filteredItems]
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(newItem)
+    }
+        
+    fetch(URL,config)
+        .then(res => res.json())
+        .then(newItem => {
+            this.setState({
+                items: [newItem ,...this.state.items],
+                // filteredItems: [newItem, ...this.state.filteredItems]
                 })
             })
-    }
+        }
     //items:
+
     render(){
         return(
-                    <div>
+            <div>
                         {/* <div>
                         <FridgeCollection items={this.state.filteredItems}/>
                         </div> */}
-                        <div>
-                        <GroceryContainer addGroceryItem={this.addGroceryItem} items={this.state.filteredItems}/>
-                        </div>
-                    </div>
-                )
-        }
+                <span>
+                <GroceryContainer addGroceryItem={this.addGroceryItem} items={this.state.filteredItems}/>
+                </span>
+            </div>
+        )
     }
+}
+
 export default FoodContainer
