@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import FridgeContainer from './components/FridgeContainer'
+import FoodContainer from './containers/FoodContainer'
 import NavBar from './components/NavBar'
+
 function App() {
   return (
     <div className="App">
       <NavBar/>
-      <FridgeContainer/>
+      <FoodContainer/>
       
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+//install, import react router dom for buttonlink
 
 const NavBar = () => {
     return(
@@ -12,4 +13,6 @@ const NavBar = () => {
         </div>
     );
 };
+
+
 export default NavBar 

@@ -1,6 +1,5 @@
 import React from 'react';
-
-class FridgeCard extends React.Component {
+class GroceryCard extends React.Component {
 
     render(){
         const { itemName, expirationDate, meal } = this.props.item
@@ -16,4 +15,4 @@ class FridgeCard extends React.Component {
     }
 }
 
-export default FridgeCard
+export default GroceryCard
